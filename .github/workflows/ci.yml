@@ -1,0 +1,19 @@
+name: Tests
+permissions: read-all
+on:
+  pull_request:
+  push:
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    name: Compile and install Curl
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Curl
+        uses: PHPWatch/setup-curl@main
+
+      - name: Display versions and env
+        run: |
+          curl --version
